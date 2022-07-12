@@ -15,10 +15,13 @@ use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
 use Symfony\Component\VarDumper\Dumper\ContextualizedDumper;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 use Symfony\Component\VarDumper\Dumper\ServerDumper;
+use Symfony\Component\VarDumper\Dumper\AbstractDumper;
 use Symfony\Component\VarDumper\VarDumper;
 
 class VarDumperConfigurator
 {
+    protected static ?AbstractDumper $dumper = null;
+
     public static function configure(?string $ide = null, ?string $theme = null): void
     {
         if (!$ide && !$theme) {
@@ -53,6 +56,8 @@ class VarDumperConfigurator
             $dumper->setTheme($theme);
         }
 
+        self::$dumper = $dumper;
+
         if (!$dumper instanceof ServerDumper) {
             $dumper = new ContextualizedDumper($dumper, [new SourceContextProvider()]);
         }
@@ -60,6 +65,11 @@ class VarDumperConfigurator
         VarDumper::setHandler(function ($var) use ($cloner, $dumper) {
             $dumper->dump($cloner->cloneVar($var));
         });
+    }
+
+    public static function getDumper(): ?AbstractDumper
+    {
+        return self::$dumper;
     }
 
     private static function getDefaultContextProviders(): array
