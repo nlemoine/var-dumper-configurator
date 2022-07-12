@@ -2,9 +2,15 @@
 
 VarDumper component has some nice features when used with the complete Symfony stack. However, those features are lost or tedious to configure application wide when using in standalone mode.
 
-This package aims to provide a simple way to configure these options such as `theme` and `fileLinkFormat` which dumped objects to links that directly open your favorite IDE.
+This package aims to provide a simple way to configure these options such as `theme` and `fileLinkFormat` which puts links on dumped objects that directly open your favorite IDE.
 
 ## Usage
+
+Install the package:
+
+```bash
+composer req hellonico/var-dumper-configurator
+```
 
 The component is automatically configured with environment variables:
 
