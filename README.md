@@ -2,7 +2,7 @@
 
 VarDumper component has some nice features when used with the complete Symfony stack. However, those features are lost or tedious to configure application wide when using in standalone mode.
 
-This package aims to provide a simple way to configure these options such as `theme` and `fileLinkFormat` which puts links on dumped objects that directlyopen related file in your favorite IDE.
+This package aims to provide a simple way to configure these options such as `theme` and `fileLinkFormat` which puts links on dumped objects that directly open related file in your favorite IDE.
 
 ## Usage
 
@@ -38,6 +38,8 @@ You can also call the `VarDumperConfigurator::configure` method yourself.
 ```php
 HelloNico\VarDumperConfigurator\VarDumperConfigurator::configure('vscode', 'light');
 ```
+
+**⚠️ Don't `require --dev` if using it that way.**
 
 ### IDE supported
 
