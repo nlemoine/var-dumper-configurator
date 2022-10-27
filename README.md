@@ -14,7 +14,7 @@ composer req hellonico/var-dumper-configurator --dev
 
 The component is automatically configured with environment variables:
 
-If you're a `.env` file:
+If you're using a `.env` file:
 
 ```env
 VAR_DUMPER_THEME=light
