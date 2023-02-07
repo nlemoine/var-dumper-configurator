@@ -24,10 +24,10 @@ VAR_DUMPER_IDE=vscode
 Or in pure PHP:
 
 ```php
-$_SERVER['VAR_DUMPER_THEME'] = 'light':
+$_SERVER['VAR_DUMPER_THEME'] = 'light';
 $_SERVER['VAR_DUMPER_IDE'] = 'vscode';
 // OR
-putenv('VAR_DUMPER_THEME=light'):
+putenv('VAR_DUMPER_THEME=light');
 putenv('VAR_DUMPER_IDE=vscode');
 ```
 
